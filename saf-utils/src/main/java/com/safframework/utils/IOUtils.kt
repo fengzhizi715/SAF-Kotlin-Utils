@@ -10,7 +10,6 @@ object IOUtils {
 
     private val BUFFER_SIZE = 0x400 // 1024
 
-
     /**
      * 安全关闭io流
      * @param closeable
