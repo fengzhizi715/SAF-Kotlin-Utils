@@ -130,6 +130,7 @@ object SAFUtils {
 
     /**
      * 生成app日志tag
+     * 可以这样使用: SAFUtils.makeLogTag(this.getClass());
      * @param cls
      *
      * @return

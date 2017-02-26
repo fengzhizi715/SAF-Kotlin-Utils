@@ -44,8 +44,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
+    compile 'com.safframework.log:saf-log:1.0.4'
     compile project(':saf-utils')
-}
-repositories {
-    mavenCentral()
 }
