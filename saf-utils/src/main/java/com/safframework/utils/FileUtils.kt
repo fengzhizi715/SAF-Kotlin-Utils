@@ -7,7 +7,7 @@ import java.io.File
  */
 object FileUtils {
 
-    fun exists(file: File?): Boolean {
+    @JvmStatic fun exists(file: File?): Boolean {
         return file != null && file.exists()
     }
 
@@ -17,7 +17,7 @@ object FileUtils {
      * *
      * @return
      */
-    fun isFile(file: File) : Boolean = exists(file) && file.isFile
+    @JvmStatic fun isFile(file: File) : Boolean = exists(file) && file.isFile
 
     /**
      * 判断是否目录
@@ -25,5 +25,5 @@ object FileUtils {
      * *
      * @return
      */
-    fun isDirectory(file: File) : Boolean = exists(file) && file.isDirectory
+    @JvmStatic fun isDirectory(file: File) : Boolean = exists(file) && file.isDirectory
 }

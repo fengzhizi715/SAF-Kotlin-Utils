@@ -15,48 +15,48 @@ import java.io.File
  */
 object SAFUtils {
 
-    fun isFroyoOrHigher(): Boolean {
+    @JvmStatic fun isFroyoOrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO
     }
 
-    fun isGingerbreadOrHigher(): Boolean {
+    @JvmStatic fun isGingerbreadOrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD
     }
 
-    fun isHoneycombOrHigher(): Boolean {
+    @JvmStatic fun isHoneycombOrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB
     }
 
-    fun isICSOrHigher(): Boolean {
+    @JvmStatic fun isICSOrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH
     }
 
-    fun isJellyBeanOrHigher(): Boolean {
+    @JvmStatic fun isJellyBeanOrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
     }
 
     @TargetApi(17)
-    fun isJellyBeanMR1OrHigher(): Boolean {
+    @JvmStatic  fun isJellyBeanMR1OrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
     }
 
     @TargetApi(18)
-    fun isJellyBeanMR2OrHigher(): Boolean {
+    @JvmStatic fun isJellyBeanMR2OrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2
     }
 
     @TargetApi(19)
-    fun isKitkatOrHigher(): Boolean {
+    @JvmStatic fun isKitkatOrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
     }
 
     @TargetApi(20)
-    fun isKitkatWatchOrHigher(): Boolean {
+    @JvmStatic fun isKitkatWatchOrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH
     }
 
     @TargetApi(21)
-    fun isLOrHigher(): Boolean {
+    @JvmStatic fun isLOrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
     }
 
@@ -65,16 +65,16 @@ object SAFUtils {
      * @return
      */
     @TargetApi(22)
-    fun isLMR1OrHigher(): Boolean {
+    @JvmStatic fun isLMR1OrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1
     }
 
     @TargetApi(23)
-    fun isMOrHigher(): Boolean {
+    @JvmStatic fun isMOrHigher(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
     }
 
-    fun isWiFiActive(context: Context): Boolean {
+    @JvmStatic fun isWiFiActive(context: Context): Boolean {
         var wm: WifiManager? = null
         try {
             wm = context.getSystemService(Context.WIFI_SERVICE) as WifiManager
@@ -88,10 +88,10 @@ object SAFUtils {
     /**
      * 安装apk
      * @param fileName apk文件的绝对路径
-     * *
+     *
      * @param context
      */
-    fun installAPK(fileName: String, context: Context) {
+    @JvmStatic fun installAPK(fileName: String, context: Context) {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.setDataAndType(Uri.fromFile(File(fileName)), "application/vnd.android.package-archive")
         context.startActivity(intent)
@@ -100,10 +100,10 @@ object SAFUtils {
     /**
      * 检测网络状态
      * @param context
-     * *
+     *
      * @return
      */
-    fun checkNetworkStatus(context: Context): Boolean {
+    @JvmStatic fun checkNetworkStatus(context: Context): Boolean {
         var resp = false
         val connMgr = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetInfo = connMgr.activeNetworkInfo
@@ -116,10 +116,10 @@ object SAFUtils {
     /**
      * 检测gps状态
      * @param context
-     * *
+     *
      * @return
      */
-    fun checkGPSStatus(context: Context): Boolean {
+    @JvmStatic fun checkGPSStatus(context: Context): Boolean {
         var resp = false
         val lm = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if (lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
@@ -131,10 +131,10 @@ object SAFUtils {
     /**
      * 生成app日志tag
      * @param cls
-     * *
+     *
      * @return
      */
-    fun makeLogTag(cls: Class<*>): String {
+    @JvmStatic fun makeLogTag(cls: Class<*>): String {
         return cls.simpleName
     }
 }
