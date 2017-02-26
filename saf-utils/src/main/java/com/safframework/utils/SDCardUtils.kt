@@ -1,24 +1,28 @@
 package com.safframework.utils
 
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-
+import android.annotation.TargetApi
+import android.os.Build
+import android.os.Environment
+import android.os.StatFs
+import java.io.*
 
 /**
  * Created by tony on 2017/2/26.
  */
 object SDCardUtils {
 
+    val KB = 1024
+
+    val MB = 1024 * 1024
+
+    val GB = 1024 * 1024 * 1024
+
     /**
      * Check the SD card
      *
      * @return 是否存在SDCard
      */
-    @JvmStatic fun checkSDCardAvailable(): Boolean {
-        return android.os.Environment.getExternalStorageState() == android.os.Environment.MEDIA_MOUNTED
-    }
-
+    @JvmStatic fun checkSDCardAvailable(): Boolean = android.os.Environment.getExternalStorageState() == android.os.Environment.MEDIA_MOUNTED
 
     /**
      * Check if the file is exists
@@ -118,5 +122,100 @@ object SDCardUtils {
             return false
         return file.delete()
     }
+
+    /**
+     * 获取SD卡的路径
+     *
+     * @return SD卡的路径
+     */
+    @JvmStatic fun getSDCardPath(): String? =
+            if (!checkSDCardAvailable()) {
+                null
+            } else {
+                val command = "car /proc/mounts"
+                val runtime = Runtime.getRuntime()
+                var bufferReader: BufferedReader? = null
+                try {
+                    val p = runtime.exec(command)
+                    bufferReader = BufferedReader(InputStreamReader(p.inputStream))
+                    var line = bufferReader.readLine()
+                    while (line != null) {
+                        if (line.contains("sdcard") && line.contains(".android_secure")) {
+                            val strArray = line.split(" ")
+                            if (strArray.size >= 5) {
+                                strArray[1].replace("/.android_secure", "") + File.separator
+                            }
+                        }
+                        if (p.waitFor() != 0 && p.exitValue() == 1) {
+                            null
+                        }
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                } finally {
+                    IOUtils.closeQuietly(bufferReader)
+                }
+                Environment.getExternalStorageDirectory().path
+            }
+
+
+    /**
+     * 获取SD卡的剩余空间
+     *
+     * @return SD卡的剩余空间
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+    @JvmStatic fun getSDCardFreeSpace(): String? =
+            if (!checkSDCardAvailable()) {
+                null
+            } else {
+                val statFs = StatFs(getSDCardPath())
+                byte2FitMemorySize(statFs.availableBlocksLong * statFs.blockSizeLong)
+            }
+
+    /**
+     * 字节数转合适的内存大小
+     *
+     * @param byteNum 字节数
+     * @return 合适的内存大小
+     */
+    fun byte2FitMemorySize(byteNum: Long): String
+            = when {
+        byteNum < 0 -> "shouldn't be less than zero"
+        byteNum < SDCardUtils.KB -> String.format("%.3fB", byteNum + 0.0005)
+        byteNum < SDCardUtils.MB -> String.format("%.3fKB", byteNum / SDCardUtils.KB)
+        byteNum < SDCardUtils.GB -> String.format("%.3fMB", byteNum / SDCardUtils.MB)
+        else -> String.format("%.3fGB", byteNum / SDCardUtils.GB)
+    }
+
+    /**
+     * 获取SD卡信息
+     *
+     * @return SD卡信息
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+    @JvmStatic fun getSDCardInfo(): SDCardInfo =
+            if (!checkSDCardAvailable()) {
+                SDCardInfo()
+            } else {
+                val statFs = StatFs(getSDCardPath())
+                SDCardInfo(true,
+                        statFs.blockCountLong,
+                        statFs.freeBlocksLong,
+                        statFs.availableBlocksLong,
+                        statFs.blockSizeLong,
+                        statFs.totalBytes,
+                        statFs.freeBytes,
+                        statFs.availableBytes)
+            }
+
+    data class SDCardInfo(var isExist: Boolean = false,
+                          var totalBlocks: Long = -1,
+                          var freeBlocks: Long = -1,
+                          var availableBlocks: Long = -1,
+                          var blockByteSize: Long = -1,
+                          var totalBytes: Long = -1,
+                          var freeBytes: Long = -1,
+                          var availableBytes: Long = -1)
 
 }
