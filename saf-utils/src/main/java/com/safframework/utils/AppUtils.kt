@@ -1,13 +1,11 @@
 package com.safframework.utils
 
-import java.lang.reflect.InvocationTargetException;
-import android.content.Context;
-import android.app.ActivityManager.MemoryInfo;
 import android.app.ActivityManager
+import android.app.ActivityManager.MemoryInfo
 import android.app.ActivityManager.RunningAppProcessInfo
-import android.os.Build
-import android.annotation.TargetApi
+import android.content.Context
 import android.util.Log
+import java.lang.reflect.InvocationTargetException
 
 
 /**
@@ -20,9 +18,7 @@ object AppUtils {
      *
      * @return
      */
-    @JvmStatic fun getSDKVersion(): Int {
-        return android.os.Build.VERSION.SDK_INT
-    }
+    @JvmStatic fun getSDKVersion(): Int = android.os.Build.VERSION.SDK_INT
 
     /**
      * 是否Dalvik模式
