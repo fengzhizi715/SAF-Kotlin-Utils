@@ -3,6 +3,7 @@ package com.safframework.utils
 import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.net.Uri
@@ -137,5 +138,26 @@ object SAFUtils {
      */
     @JvmStatic fun makeLogTag(cls: Class<*>): String {
         return cls.simpleName
+    }
+
+    /**
+     * 获取AndroidManifest.xml中<meta-data>元素的值
+     * @param context
+     * *
+     * @param name
+     * *
+     * @return
+    </meta-data> */
+    @JvmStatic fun <T> getMetaData(context: Context, name: String): T? {
+        try {
+            val ai = context.packageManager.getApplicationInfo(context.packageName,
+                    PackageManager.GET_META_DATA)
+
+            return ai.metaData?.get(name) as T
+        } catch (e: Exception) {
+            print("Couldn't find meta-data: " + name)
+        }
+
+        return null
     }
 }
