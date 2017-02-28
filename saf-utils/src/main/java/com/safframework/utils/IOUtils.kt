@@ -32,8 +32,7 @@ object IOUtils {
             outChannel?.close()
         }
 
-        `in`.close()
-        out.close()
+        closeQuietly(`in`,out)
     }
 
     /**

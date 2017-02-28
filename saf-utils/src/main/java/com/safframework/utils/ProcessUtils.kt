@@ -32,7 +32,7 @@ object ProcessUtils {
                 return it.processName
             }
         }
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT > 21) {
             val pm = context.packageManager
             val intent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
             val list = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
