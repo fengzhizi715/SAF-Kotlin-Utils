@@ -116,6 +116,7 @@ object AppUtils {
             for (service in serviceList) {
                 if (service.pid === android.os.Process.myPid())
                     continue
+
                 try {
                     android.os.Process.killProcess(service.pid)
                     count++
