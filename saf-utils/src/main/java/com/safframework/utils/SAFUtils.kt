@@ -75,6 +75,11 @@ object SAFUtils {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
     }
 
+    @TargetApi(24)
+    @JvmStatic fun isNOrHigher(): Boolean {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
+    }
+
     @JvmStatic fun isWiFiActive(context: Context): Boolean {
         var wm: WifiManager? = null
         try {
