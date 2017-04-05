@@ -16,49 +16,49 @@ object ShellUtils {
 
     /**
      * Check root permission
-
+     *
      * @return
      */
-    fun checkRootPermission(): Boolean {
+    @JvmStatic fun checkRootPermission(): Boolean {
         return execCommand("echo root", true) == 0
     }
 
     /**
      * Exec shell command
-
+     *
      * @param command
      * *
      * @param isRoot
      * *
      * @return
      */
-    fun execCommand(command: String, isRoot: Boolean): Int {
+    @JvmStatic fun execCommand(command: String, isRoot: Boolean): Int {
         return execCommand(arrayOf(command), isRoot)
     }
 
     /**
      * Exec shell command
-
+     *
      * @param commands
-     * *
+     *
      * @param isRoot
-     * *
+     *
      * @return
      */
-    fun execCommand(commands: List<String>?, isRoot: Boolean): Int {
+    @JvmStatic fun execCommand(commands: List<String>?, isRoot: Boolean): Int {
         return execCommand(commands?.toTypedArray(), isRoot)
     }
 
     /**
      * Exec shell command
-
+     *
      * @param commands
-     * *
+     *
      * @param isRoot
-     * *
+     *
      * @return
      */
-    fun execCommand(commands: Array<String>?, isRoot: Boolean): Int {
+    @JvmStatic fun execCommand(commands: Array<String>?, isRoot: Boolean): Int {
         var result = -1
         if (commands == null || commands.size == 0) {
             return result
