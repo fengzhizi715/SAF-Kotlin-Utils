@@ -9,11 +9,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.Settings
-import com.safframwork.tony.common.utils.Preconditions
+import com.safframework.tony.common.utils.Preconditions
 import java.util.*
 
 /**
- * Created by tony on 2017/2/26.
+ * Created by tony on 2017/2/26
  */
 object ProcessUtils {
 
