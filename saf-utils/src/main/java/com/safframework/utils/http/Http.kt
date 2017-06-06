@@ -20,6 +20,8 @@ class RequestWrapper {
 
     var body: RequestBody? = null
 
+    var timeout:Long = 10
+
     internal var _success: (String) -> Unit = { }
     internal var _fail: (Throwable) -> Unit = {}
 
@@ -60,10 +62,12 @@ private fun onExecute(wrap:RequestWrapper): Response? {
     when(wrap.method) {
 
         "get","Get","GET" -> req =Request.Builder().url(wrap.url).build()
-        "post" -> req = Request.Builder().url(wrap.url).post(wrap.body).build()
+        "post","Post","POST" -> req = Request.Builder().url(wrap.url).post(wrap.body).build()
+        "put","Put","PUT" -> req = Request.Builder().url(wrap.url).put(wrap.body).build()
+        "delete","Delete","DELETE" -> req = Request.Builder().url(wrap.url).delete(wrap.body).build()
     }
 
-    val http = OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).build()
+    val http = OkHttpClient.Builder().connectTimeout(wrap.timeout, TimeUnit.SECONDS).build()
     val resp = http.newCall(req).execute()
     return resp
 }
