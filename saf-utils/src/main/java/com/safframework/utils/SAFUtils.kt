@@ -16,69 +16,6 @@ import java.io.File
  */
 object SAFUtils {
 
-    @JvmStatic fun isFroyoOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO
-    }
-
-    @JvmStatic fun isGingerbreadOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD
-    }
-
-    @JvmStatic fun isHoneycombOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB
-    }
-
-    @JvmStatic fun isICSOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH
-    }
-
-    @JvmStatic fun isJellyBeanOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
-    }
-
-    @TargetApi(17)
-    @JvmStatic  fun isJellyBeanMR1OrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
-    }
-
-    @TargetApi(18)
-    @JvmStatic fun isJellyBeanMR2OrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2
-    }
-
-    @TargetApi(19)
-    @JvmStatic fun isKitkatOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-    }
-
-    @TargetApi(20)
-    @JvmStatic fun isKitkatWatchOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH
-    }
-
-    @TargetApi(21)
-    @JvmStatic fun isLOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-    }
-
-    /**
-     * api level 22是android 5.1
-     * @return
-     */
-    @TargetApi(22)
-    @JvmStatic fun isLMR1OrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1
-    }
-
-    @TargetApi(23)
-    @JvmStatic fun isMOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-    }
-
-    @TargetApi(24)
-    @JvmStatic fun isNOrHigher(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
-    }
 
     @JvmStatic fun isWiFiActive(context: Context): Boolean {
         var wm: WifiManager? = null
