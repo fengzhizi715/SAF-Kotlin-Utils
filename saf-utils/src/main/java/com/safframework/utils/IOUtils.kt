@@ -26,7 +26,7 @@ object IOUtils {
         val outChannel = out.channel
 
         try {
-            inChannel!!.transferTo(0, inChannel.size(), outChannel)
+            inChannel?.transferTo(0, inChannel.size(), outChannel)
         } finally {
             inChannel?.close()
             outChannel?.close()
