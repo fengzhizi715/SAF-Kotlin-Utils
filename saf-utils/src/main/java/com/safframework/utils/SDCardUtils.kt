@@ -100,7 +100,7 @@ object SDCardUtils {
         } catch (e: Exception) {
             e.printStackTrace()
         } finally {
-            IOUtils.closeQuietly(fin)
+            closeQuietly(fin)
         }
 
         return buffer
@@ -153,7 +153,7 @@ object SDCardUtils {
                 } catch (e: Exception) {
                     e.printStackTrace()
                 } finally {
-                    IOUtils.closeQuietly(bufferReader)
+                    closeQuietly(bufferReader)
                 }
                 Environment.getExternalStorageDirectory().path
             }
