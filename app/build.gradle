@@ -43,6 +43,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     compile project(':saf-kotlin-utils')
+    compile project(':saf-kotlin-ext')
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.safframework.log:saf-log:1.0.5'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
