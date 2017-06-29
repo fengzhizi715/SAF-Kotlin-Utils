@@ -1,1 +1,2 @@
-include ':app', ':saf-utils'
+include ':app', ':saf-kotlin-ext'
+include ':saf-kotlin-utils'
