@@ -10,6 +10,13 @@ import android.view.inputmethod.InputMethodManager
  * Created by Tony Shen on 2017/6/30.
  */
 
+val View.isVisible: Boolean
+    get() = visibility == View.VISIBLE
+val View.isInvisible: Boolean
+    get() = visibility == View.INVISIBLE
+val View.isGone: Boolean
+    get() = visibility == View.GONE
+
 fun View.hideKeyboard() {
     clearFocus()
     (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(windowToken, 0)
