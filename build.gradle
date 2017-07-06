@@ -40,3 +40,6 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+tasks.getByPath(":saf-kotlin-ext:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":saf-kotlin-utils:releaseAndroidJavadocs").enabled = false
