@@ -8,21 +8,25 @@ import io.reactivex.schedulers.Schedulers
 /**
  * Created by Tony Shen on 2017/7/13.
  */
+object RxJavaUtils {
 
-fun <T> observableToMain():ObservableTransformer<T, T> {
+    @JvmStatic
+    fun <T> observableToMain():ObservableTransformer<T, T> {
 
-    return ObservableTransformer{
-        upstream ->
-             upstream.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        return ObservableTransformer{
+            upstream ->
+            upstream.subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+        }
     }
-}
 
-fun <T> flowableToMain(): FlowableTransformer<T, T> {
+    @JvmStatic
+    fun <T> flowableToMain(): FlowableTransformer<T, T> {
 
-    return FlowableTransformer{
-        upstream ->
-             upstream.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        return FlowableTransformer{
+            upstream ->
+            upstream.subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+        }
     }
 }

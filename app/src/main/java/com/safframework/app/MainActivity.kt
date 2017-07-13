@@ -2,11 +2,9 @@ package com.safframework.app
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
 import com.safframework.log.L
 import com.safframework.utils.getDeviceUsableMemory
 import com.safframework.utils.getSDKVersion
-import com.safframework.utils.showToast
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,6 +43,5 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
-        showToast(this,"111",Toast.LENGTH_LONG)
     }
 }
