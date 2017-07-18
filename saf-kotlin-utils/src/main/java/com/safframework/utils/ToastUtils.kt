@@ -12,11 +12,10 @@ import java.text.MessageFormat
 
 
 /**
-
  * @param activity
- * *
+ *
  * @param resId string资源id
- * *
+ *
  * @param duration
  */
 private fun showToast(activity: Activity, resId: Int,
@@ -29,11 +28,10 @@ private fun showToast(activity: Activity, resId: Int,
 }
 
 /**
-
  * @param activity
- * *
+ *
  * @param message toast的内容
- * *
+ *
  * @param duration
  */
 private fun showToast(activity: Activity, message: String,

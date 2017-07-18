@@ -86,9 +86,9 @@ object SAFUtils {
     /**
      * 获取AndroidManifest.xml中<meta-data>元素的值
      * @param context
-     * *
+     *
      * @param name
-     * *
+     * 
      * @return
     </meta-data> */
     @JvmStatic fun <T> getMetaData(context: Context, name: String): T? {
