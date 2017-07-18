@@ -1,6 +1,5 @@
 package com.safframework.utils
 
-import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,7 +7,6 @@ import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.net.wifi.WifiManager
-import android.os.Build
 import java.io.File
 
 /**
@@ -16,7 +14,10 @@ import java.io.File
  */
 object SAFUtils {
 
-
+    /**
+     * 调用该方法需要申请权限
+     * <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+     */
     @JvmStatic fun isWiFiActive(context: Context): Boolean {
         var wm: WifiManager? = null
         try {
