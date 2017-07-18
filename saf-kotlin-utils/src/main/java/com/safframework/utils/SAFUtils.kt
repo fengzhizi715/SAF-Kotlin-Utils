@@ -88,9 +88,9 @@ object SAFUtils {
      * @param context
      *
      * @param name
-     * 
+     *
      * @return
-    </meta-data> */
+     */
     @JvmStatic fun <T> getMetaData(context: Context, name: String): T? {
         try {
             val ai = context.packageManager.getApplicationInfo(context.packageName,

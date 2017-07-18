@@ -46,15 +46,14 @@ object SDCardUtils {
 
     /**
      * Write file to SD card
-
      * @param filePath 文件路径
-     * *
+     *
      * @param filename 文件名
-     * *
+     *
      * @param content  内容
-     * *
+     *
      * @return 是否保存成功
-     * *
+     *
      * @throws Exception
      */
     @Throws(Exception::class)
@@ -77,11 +76,10 @@ object SDCardUtils {
 
     /**
      * Read file as stream from SD card
-
      * @param fileName String PATH =
-     * *                 Environment.getExternalStorageDirectory().getAbsolutePath() +
-     * *                 "/dirName";
-     * *
+     *                  Environment.getExternalStorageDirectory().getAbsolutePath() +
+     *                  "/dirName";
+     *
      * @return Byte数组
      */
     fun readFileFromSDCard(filePath: String, fileName: String): ByteArray? {
@@ -110,10 +108,10 @@ object SDCardUtils {
      * Delete file
      *
      * @param filePath 文件路径
-     * *
+     *
      * @param fileName filePath =
-     * *                 android.os.Environment.getExternalStorageDirectory().getPath()
-     * *
+     *                  android.os.Environment.getExternalStorageDirectory().getPath()
+     *
      * @return 是否删除成功
      */
     @JvmStatic fun deleteSDFile(filePath: String, fileName: String): Boolean {
