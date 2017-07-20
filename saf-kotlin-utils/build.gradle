@@ -67,7 +67,7 @@ publish{
     userOrg = 'fengzhizi715'
     groupId = 'com.safframework.utils'
     artifactId = 'saf-kotlin-utils'
-    publishVersion = '0.0.2.2'
+    publishVersion = '0.0.2.3'
     desc = 'this is an android tool library, written using Kotlin'
     website = 'https://github.com/fengzhizi715/SAF-Kotlin-Utils'
 }

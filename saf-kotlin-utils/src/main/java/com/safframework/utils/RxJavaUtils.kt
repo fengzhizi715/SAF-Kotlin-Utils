@@ -4,6 +4,7 @@ import io.reactivex.FlowableTransformer
 import io.reactivex.ObservableTransformer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by Tony Shen on 2017/7/13.
@@ -27,6 +28,16 @@ object RxJavaUtils {
             upstream ->
             upstream.subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+        }
+    }
+
+    /**
+     * 防止重复点击的Transformer
+     */
+    @JvmStatic
+    fun <T> preventDuplicateClicksTransformer(): ObservableTransformer<T, T> {
+        return ObservableTransformer { upstream ->
+            upstream.throttleFirst(1000, TimeUnit.MILLISECONDS)
         }
     }
 }
