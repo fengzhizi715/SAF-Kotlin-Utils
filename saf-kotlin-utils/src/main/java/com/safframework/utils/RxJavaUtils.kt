@@ -1,7 +1,6 @@
 package com.safframework.utils
 
-import io.reactivex.FlowableTransformer
-import io.reactivex.ObservableTransformer
+import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
@@ -25,6 +24,36 @@ object RxJavaUtils {
     fun <T> flowableToMain(): FlowableTransformer<T, T> {
 
         return FlowableTransformer{
+            upstream ->
+            upstream.subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+        }
+    }
+
+    @JvmStatic
+    fun <T> singleToMain(): SingleTransformer<T, T> {
+
+        return SingleTransformer{
+            upstream ->
+            upstream.subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+        }
+    }
+
+    @JvmStatic
+    fun completableToMain(): CompletableTransformer {
+
+        return CompletableTransformer{
+            upstream ->
+            upstream.subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+        }
+    }
+
+    @JvmStatic
+    fun <T> maybeToMain(): MaybeTransformer<T, T> {
+
+        return MaybeTransformer{
             upstream ->
             upstream.subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
