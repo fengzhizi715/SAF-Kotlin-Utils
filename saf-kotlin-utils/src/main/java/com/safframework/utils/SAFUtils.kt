@@ -18,7 +18,8 @@ object SAFUtils {
      * 调用该方法需要申请权限
      * <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
      */
-    @JvmStatic fun isWiFiActive(context: Context): Boolean {
+    @JvmStatic
+    fun isWiFiActive(context: Context): Boolean {
         var wm: WifiManager? = null
         try {
             wm = context.getSystemService(Context.WIFI_SERVICE) as WifiManager
@@ -35,7 +36,8 @@ object SAFUtils {
      *
      * @param context
      */
-    @JvmStatic fun installAPK(fileName: String, context: Context) {
+    @JvmStatic
+    fun installAPK(fileName: String, context: Context) {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.setDataAndType(Uri.fromFile(File(fileName)), "application/vnd.android.package-archive")
         context.startActivity(intent)
@@ -47,7 +49,8 @@ object SAFUtils {
      *
      * @return
      */
-    @JvmStatic fun checkNetworkStatus(context: Context): Boolean {
+    @JvmStatic
+    fun checkNetworkStatus(context: Context): Boolean {
         var resp = false
         val connMgr = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetInfo = connMgr.activeNetworkInfo
@@ -63,7 +66,8 @@ object SAFUtils {
      *
      * @return
      */
-    @JvmStatic fun checkGPSStatus(context: Context): Boolean {
+    @JvmStatic
+    fun checkGPSStatus(context: Context): Boolean {
         var resp = false
         val lm = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if (lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
@@ -79,7 +83,8 @@ object SAFUtils {
      *
      * @return
      */
-    @JvmStatic fun makeLogTag(cls: Class<*>): String {
+    @JvmStatic
+    fun makeLogTag(cls: Class<*>): String {
         return cls.simpleName
     }
 
@@ -91,7 +96,8 @@ object SAFUtils {
      *
      * @return
      */
-    @JvmStatic fun <T> getMetaData(context: Context, name: String): T? {
+    @JvmStatic
+    fun <T> getMetaData(context: Context, name: String): T? {
         try {
             val ai = context.packageManager.getApplicationInfo(context.packageName,
                     PackageManager.GET_META_DATA)
@@ -102,5 +108,61 @@ object SAFUtils {
         }
 
         return null
+    }
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     * @param context
+     *
+     * @param dpValue
+     *
+     * @return
+     */
+    @JvmStatic
+    fun dip2px(context: Context, dpValue: Float): Int {
+        val scale = context.resources.displayMetrics.density
+        return (dpValue * scale + 0.5f).toInt()
+    }
+
+    /**
+     * 根据手机的分辨率从  px(像素) 转成为dp
+     * @param context
+     *
+     * @param pxValue
+     *
+     * @return
+     */
+    @JvmStatic
+    fun px2dip(context: Context, pxValue: Float): Int {
+        val scale = context.resources.displayMetrics.density
+        return (0.5f + pxValue / scale).toInt()
+    }
+
+    /**
+     * 根据手机的分辨率从 sp 的单位 转成为 px(像素)
+     * @param context
+     *
+     * @param spValue
+     *
+     * @return
+     */
+    @JvmStatic
+    fun sp2px(context: Context, spValue: Float): Int {
+        val scale = context.resources.displayMetrics.density
+        return (spValue * scale + 0.5f).toInt()
+    }
+
+    /**
+     * 根据手机的分辨率从  px(像素) 转成为sp
+     * @param context
+     *
+     * @param pxValue
+     *
+     * @return
+     */
+    @JvmStatic
+    fun px2sp(context: Context, pxValue: Float): Int {
+        val scale = context.resources.displayMetrics.density
+        return (pxValue / scale + 0.5f).toInt()
     }
 }
