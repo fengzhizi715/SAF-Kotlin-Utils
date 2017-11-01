@@ -4,6 +4,7 @@ import android.annotation.TargetApi
 import android.os.Build
 import android.os.Environment
 import android.os.StatFs
+import com.safframework.tony.common.utils.IOUtils
 import java.io.*
 
 /**
@@ -98,7 +99,7 @@ object SDCardUtils {
         } catch (e: Exception) {
             e.printStackTrace()
         } finally {
-            closeQuietly(fin)
+            IOUtils.closeQuietly(fin)
         }
 
         return buffer
@@ -151,7 +152,7 @@ object SDCardUtils {
                 } catch (e: Exception) {
                     e.printStackTrace()
                 } finally {
-                    closeQuietly(bufferReader)
+                    IOUtils.closeQuietly(bufferReader)
                 }
                 Environment.getExternalStorageDirectory().path
             }

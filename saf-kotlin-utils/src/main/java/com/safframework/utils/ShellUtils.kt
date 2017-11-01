@@ -1,5 +1,6 @@
 package com.safframework.utils
 
+import com.safframework.tony.common.utils.IOUtils
 import java.io.BufferedReader
 import java.io.DataOutputStream
 import java.io.IOException
@@ -89,7 +90,7 @@ fun execCommand(commands: Array<String>?, isRoot: Boolean): Int {
         e.printStackTrace()
     } finally {
 
-        closeQuietly(dos, succBR, errorBR)
+        IOUtils.closeQuietly(dos, succBR, errorBR)
         if (process != null) {
             process.destroy()
         }
