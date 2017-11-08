@@ -4,6 +4,8 @@ import android.app.ActivityManager
 import android.app.ActivityManager.MemoryInfo
 import android.app.ActivityManager.RunningAppProcessInfo
 import android.content.Context
+import android.content.pm.PackageManager
+import android.os.Build
 import android.util.Log
 import java.lang.reflect.InvocationTargetException
 
@@ -149,4 +151,20 @@ fun gc(context: Context): Int {
     Log.d("AppUtils", "清理了" + (getDeviceUsableMemory(context) - i) + "M内存")
 
     return count
+}
+
+/**
+ * 检查某个权限是否开启
+ *
+ * @param permission
+ * @return true or false
+ */
+fun checkPermission(context: Context, permission: String): Boolean {
+
+    if (!isMOrHigher()) {
+        val localPackageManager = context.applicationContext.packageManager
+        return localPackageManager.checkPermission(permission, context.applicationContext.packageName) == PackageManager.PERMISSION_GRANTED
+    } else {
+        return context.checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED
+    }
 }
