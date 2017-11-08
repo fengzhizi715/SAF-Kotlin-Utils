@@ -85,7 +85,6 @@ fun getCurrentRuntimeValue(): String {
  * 获取设备的可用内存大小,单位是M
  *
  * @param context 应用上下文对象context
- * *
  * @return 当前内存大小
  */
 fun getDeviceUsableMemory(context: Context): Long {
@@ -100,9 +99,8 @@ fun getDeviceUsableMemory(context: Context): Long {
 
 /**
  * 清理后台进程与服务
-
  * @param context 应用上下文对象context
- * *
+ *
  * @return 被清理的数量
  */
 fun gc(context: Context): Int {
@@ -152,4 +150,3 @@ fun gc(context: Context): Int {
 
     return count
 }
-
