@@ -5,8 +5,8 @@ import android.app.ActivityManager.MemoryInfo
 import android.app.ActivityManager.RunningAppProcessInfo
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Build
 import android.util.Log
+import com.safframework.tony.common.reflect.Reflect
 import java.lang.reflect.InvocationTargetException
 
 
@@ -14,6 +14,21 @@ import java.lang.reflect.InvocationTargetException
  * Created by tony on 2017/2/26.
  */
 
+private var mContext: Context? = null
+
+/**
+ * 获取全局的context，也就是Application Context
+ * @return
+ */
+fun getApplicationContext(): Context? {
+
+    if (mContext == null) {
+
+        mContext = Reflect.on("android.app.ActivityThread").call("currentApplication").get()
+    }
+
+    return mContext
+}
 
 /**
  * 获取手机系统SDK版本
