@@ -36,4 +36,10 @@ fun isMOrHigher(): Boolean = versionOrHigher(23)
 
 fun isNOrHigher(): Boolean = versionOrHigher(24)
 
+fun isNMR1OrHigher(): Boolean = versionOrHigher(25)
+
+fun isOOrHigher(): Boolean = versionOrHigher(26)
+
+fun isOMR1OrHigher(): Boolean = versionOrHigher(27)
+
 private fun versionOrHigher(version: Int) = Build.VERSION.SDK_INT >= version
