@@ -1,13 +1,16 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
+def cfg = rootProject.ext.configuration // 配置
+def libs = rootProject.ext.libraries // 库
+
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.2"
+    compileSdkVersion cfg.compileVersion
+    buildToolsVersion cfg.buildToolsVersion
     defaultConfig {
         applicationId "com.safframework.app"
-        minSdkVersion 14
-        targetSdkVersion 27
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -42,10 +45,10 @@ dependencies {
     })
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    compile project(':saf-kotlin-utils')
-    compile project(':saf-kotlin-ext')
-    compile 'com.android.support:appcompat-v7:27.0.2'
-    compile 'com.safframework.log:saf-log:1.0.5'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
-    testCompile 'junit:junit:4.12'
+    implementation project(':saf-kotlin-utils')
+    implementation project(':saf-kotlin-ext')
+    implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
+    implementation "com.safframework.log:saf-log:${libs.saf_log}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
+    testImplementation 'junit:junit:4.12'
 }
