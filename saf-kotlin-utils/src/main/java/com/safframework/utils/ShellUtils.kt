@@ -19,9 +19,8 @@ val COMMAND_LINE_END = "\n"
  *
  * @return
  */
-fun checkRootPermission(): Boolean {
-    return execCommand("echo root", true) == 0
-}
+fun checkRootPermission(): Boolean = execCommand("echo root", true) == 0
+
 
 /**
  * Exec shell command
@@ -32,9 +31,7 @@ fun checkRootPermission(): Boolean {
  * *
  * @return
  */
-fun execCommand(command: String, isRoot: Boolean): Int {
-    return execCommand(arrayOf(command), isRoot)
-}
+fun execCommand(command: String, isRoot: Boolean): Int = execCommand(arrayOf(command), isRoot)
 
 /**
  * Exec shell command
@@ -45,9 +42,7 @@ fun execCommand(command: String, isRoot: Boolean): Int {
  *
  * @return
  */
-fun execCommand(commands: List<String>?, isRoot: Boolean): Int {
-    return execCommand(commands?.toTypedArray(), isRoot)
-}
+fun execCommand(commands: List<String>?, isRoot: Boolean): Int = execCommand(commands?.toTypedArray(), isRoot)
 
 /**
  * Exec shell command
