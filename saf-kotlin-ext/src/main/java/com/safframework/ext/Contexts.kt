@@ -1,8 +1,8 @@
 package com.safframework.ext
 
 import android.content.Context
-import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.support.annotation.ColorRes
 import android.support.annotation.StringRes
 
 /**
@@ -10,6 +10,8 @@ import android.support.annotation.StringRes
  */
 
 fun Context.string(@StringRes id: Int): String = getString(id)
+
+fun Context.color(@ColorRes id: Int): Int = resources.getColor(id)
 
 /**
  * 获取当前app的版本号
