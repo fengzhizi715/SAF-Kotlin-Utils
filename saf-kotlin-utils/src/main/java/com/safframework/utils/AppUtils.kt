@@ -42,9 +42,7 @@ fun getSDKVersion(): Int = android.os.Build.VERSION.SDK_INT
  *
  * @return 结果
  */
-fun isDalvik(): Boolean {
-    return "Dalvik" == getCurrentRuntimeValue()
-}
+fun isDalvik(): Boolean = "Dalvik" == getCurrentRuntimeValue()
 
 /**
  * 是否ART模式
