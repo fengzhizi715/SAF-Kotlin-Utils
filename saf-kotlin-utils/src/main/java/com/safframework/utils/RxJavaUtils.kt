@@ -64,17 +64,7 @@ object RxJavaUtils {
      * 防止重复点击的Transformer
      */
     @JvmStatic
-    fun <T> preventDuplicateClicksTransformer(): ObservableTransformer<T, T> {
-        return ObservableTransformer { upstream ->
-            upstream.throttleFirst(1000, TimeUnit.MILLISECONDS)
-        }
-    }
-
-    /**
-     * 防止重复点击的Transformer
-     */
-    @JvmStatic
-    fun <T> preventDuplicateClicksTransformer(windowDuration:Long,timeUnit: TimeUnit): ObservableTransformer<T, T> {
+    fun <T> preventDuplicateClicksTransformer(windowDuration:Long=1000,timeUnit: TimeUnit=TimeUnit.MILLISECONDS): ObservableTransformer<T, T> {
         return ObservableTransformer { upstream ->
             upstream.throttleFirst(windowDuration, timeUnit)
         }
