@@ -27,6 +27,10 @@ fun View.showKeyboard() {
     (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
 
+fun <T : View> T.click(block: (T) -> Unit) = setOnClickListener { block(it as T) }
+
+fun <T : View> T.longClick(block: (T) -> Boolean) = setOnLongClickListener { block(it as T) }
+
 fun View.toBitmap(): Bitmap?{
     clearFocus()
     isPressed = false
