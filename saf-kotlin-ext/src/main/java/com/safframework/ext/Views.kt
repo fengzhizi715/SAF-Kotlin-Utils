@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import com.safframework.ext.utils.Utils
 
 /**
  * Created by Tony Shen on 2017/6/30.
@@ -27,7 +28,12 @@ fun View.showKeyboard() {
     (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
 
-fun <T : View> T.click(block: (T) -> Unit) = setOnClickListener { block(it as T) }
+fun <T : View> T.click(block: (T) -> Unit) = setOnClickListener {
+
+    if (!Utils.isFastClick()) {
+        block(it as T)
+    }
+}
 
 fun <T : View> T.longClick(block: (T) -> Boolean) = setOnLongClickListener { block(it as T) }
 
