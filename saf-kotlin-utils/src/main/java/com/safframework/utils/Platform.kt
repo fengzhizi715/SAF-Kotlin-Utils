@@ -42,4 +42,13 @@ fun isOOrHigher(): Boolean = versionOrHigher(26)
 
 fun isOMR1OrHigher(): Boolean = versionOrHigher(27)
 
+fun support(apiVersion:Int, block : () -> Unit) {
+
+    if (versionOrHigher(apiVersion)) {
+
+        block()
+    }
+}
+
 private fun versionOrHigher(version: Int) = Build.VERSION.SDK_INT >= version
+
