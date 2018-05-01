@@ -23,7 +23,8 @@ object SDCardUtils {
      *
      * @return 是否存在SDCard
      */
-    @JvmStatic fun checkSDCardAvailable(): Boolean = android.os.Environment.getExternalStorageState() == android.os.Environment.MEDIA_MOUNTED
+    @JvmStatic
+    fun checkSDCardAvailable(): Boolean = android.os.Environment.getExternalStorageState() == android.os.Environment.MEDIA_MOUNTED
 
     /**
      * Check if the file is exists
@@ -34,7 +35,8 @@ object SDCardUtils {
      * *
      * @return 是否存在文件
      */
-    @JvmStatic fun isFileExistsInSDCard(filePath: String, fileName: String): Boolean {
+    @JvmStatic
+    fun isFileExistsInSDCard(filePath: String, fileName: String): Boolean {
         var flag = false
         if (checkSDCardAvailable()) {
             val file = File(filePath, fileName)
@@ -58,7 +60,8 @@ object SDCardUtils {
      * @throws Exception
      */
     @Throws(Exception::class)
-    @JvmStatic fun saveFileToSDCard(filePath: String, filename: String,
+    @JvmStatic
+    fun saveFileToSDCard(filePath: String, filename: String,
                          content: String): Boolean {
         var flag = false
         if (checkSDCardAvailable()) {
@@ -115,7 +118,8 @@ object SDCardUtils {
      *
      * @return 是否删除成功
      */
-    @JvmStatic fun deleteSDFile(filePath: String, fileName: String): Boolean {
+    @JvmStatic
+    fun deleteSDFile(filePath: String, fileName: String): Boolean {
         val file = File(filePath + "/" + fileName)
         if (!file.exists() || file.isDirectory)
             return false
@@ -127,7 +131,8 @@ object SDCardUtils {
      *
      * @return SD卡的路径
      */
-    @JvmStatic fun getSDCardPath(): String? =
+    @JvmStatic
+    fun getSDCardPath(): String? =
             if (!checkSDCardAvailable()) {
                 null
             } else {
@@ -164,7 +169,8 @@ object SDCardUtils {
      * @return SD卡的剩余空间
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    @JvmStatic fun getSDCardFreeSpace(): String? =
+    @JvmStatic
+    fun getSDCardFreeSpace(): String? =
             if (!checkSDCardAvailable()) {
                 null
             } else {
@@ -193,7 +199,8 @@ object SDCardUtils {
      * @return SD卡信息
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    @JvmStatic fun getSDCardInfo(): SDCardInfo =
+    @JvmStatic
+    fun getSDCardInfo(): SDCardInfo =
             if (!checkSDCardAvailable()) {
                 SDCardInfo()
             } else {
