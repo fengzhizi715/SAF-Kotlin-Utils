@@ -12,8 +12,19 @@
 
 ## 扩展库
 ### Boolean
-* then
+* then()
 
 ### Bundle
-* put
+* put()
 
+### Context
+* dp2px()
+* sp2px()
+* px2dp()
+* dimen2px()
+* string()
+* color()
+* inflateLayout()
+* getAppVersion()
+* getAppVersionCode()
+* getPackageName()
