@@ -11,6 +11,7 @@
 
 
 ## 扩展库
+
 ### Boolean
 * then()
 
@@ -28,3 +29,17 @@
 * getAppVersion()
 * getAppVersionCode()
 * getPackageName()
+
+## Throwable
+* getStackTraceText()
+
+## Closeable
+* closeQuietly()
+
+## View
+* hideKeyboard()
+* showKeyboard()
+* click()
+* clickWithTrigger()
+* longClick()
+* toBitmap()
