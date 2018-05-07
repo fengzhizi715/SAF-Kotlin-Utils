@@ -9,8 +9,16 @@
 ---|:-------------:|:-------------:
 最新版本|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/saf-kotlin-utils/images/download.svg) ](https://bintray.com/fengzhizi715/maven/saf-kotlin-utils/_latestVersion)|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/saf-kotlin-ext/images/download.svg) ](https://bintray.com/fengzhizi715/maven/saf-kotlin-ext/_latestVersion)|
 
-## 工具库的方法
 
+# 下载安装
+
+Gradle:
+```groovy
+implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.2'
+implementation 'com.safframework.utils:saf-kotlin-utils:0.0.4.3'
+```
+
+## 工具库的方法
 
 
 ## 扩展库的方法
