@@ -2,6 +2,7 @@ package com.safframework.ext
 
 import android.os.Bundle
 import android.os.Parcelable
+import java.io.Serializable
 
 /**
  * Created by Tony Shen on 2017/6/30.
@@ -30,9 +31,11 @@ fun Bundle.put(params: Array<out Pair<String, Any>>): Bundle {
             is Boolean -> putBoolean(key, value)
             is BooleanArray -> putBooleanArray(key, value)
 
+            is Serializable -> putSerializable(key,value)
             is Parcelable -> putParcelable(key, value)
             is Bundle -> putAll(value)
             is Array<*> -> when {
+
                 value.isArrayOf<Parcelable>() -> putParcelableArray(key, value as Array<out Parcelable>?)
             }
 
