@@ -63,6 +63,7 @@ object RxJavaUtils {
     /**
      * 防止重复点击的Transformer
      */
+    @JvmOverloads
     @JvmStatic
     fun <T> preventDuplicateClicksTransformer(windowDuration:Long=1000,timeUnit: TimeUnit=TimeUnit.MILLISECONDS): ObservableTransformer<T, T> {
         return ObservableTransformer { upstream ->
