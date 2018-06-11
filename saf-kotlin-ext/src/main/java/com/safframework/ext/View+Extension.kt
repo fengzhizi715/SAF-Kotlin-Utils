@@ -17,14 +17,14 @@ val View.isInvisible: Boolean
 val View.isGone: Boolean
     get() = visibility == View.GONE
 
-fun View.hideKeyboard() {
+fun View.hideKeyboard():Boolean {
     clearFocus()
-    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(windowToken, 0)
+    return (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(windowToken, 0)
 }
 
-fun View.showKeyboard() {
+fun View.showKeyboard():Boolean {
     requestFocus()
-    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+    return (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
 
 /***
