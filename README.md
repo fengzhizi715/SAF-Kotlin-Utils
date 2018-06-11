@@ -14,7 +14,7 @@
 
 Gradle:
 ```groovy
-implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.3'
+implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.4'
 implementation 'com.safframework.utils:saf-kotlin-utils:0.0.4.5'
 ```
 
