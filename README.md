@@ -3,7 +3,7 @@
 [![@Tony沈哲 on weibo](https://img.shields.io/badge/weibo-%40Tony%E6%B2%88%E5%93%B2-blue.svg)](http://www.weibo.com/fengzhizi715)
 [![License](https://img.shields.io/badge/license-Apache%202-lightgrey.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-用Kolin做的工具类的库，包括utils和extension
+用 Kolin 做的工具类库，包括 utils 和 extension
 
 模块|saf-kotlin-utils|saf-kotlin-ext
 ---|:-------------:|:-------------:
@@ -13,9 +13,10 @@
 # 下载安装
 
 Gradle:
+
 ```groovy
-implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.4'
 implementation 'com.safframework.utils:saf-kotlin-utils:0.0.4.5'
+implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.4'
 ```
 
 ## 工具库的方法
