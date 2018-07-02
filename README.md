@@ -22,7 +22,7 @@ implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.4'
 ## 工具库的方法
 
 
-## 扩展库的方法
+## 扩展库的扩展方法、扩展属性
 
 ### Boolean
 * then()
@@ -51,6 +51,17 @@ implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.4'
 
 ## Object
 * TAG()
+
+## SystemService
+* accessibilityManager
+* accountManager
+* activityManager
+* alarmManager
+* appWidgetManager()
+* appOpsManager()
+* audioManager
+* batteryManager()
+* bluetoothAdapter()
 
 ## View
 * hideKeyboard()
