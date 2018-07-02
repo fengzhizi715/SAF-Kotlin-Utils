@@ -49,6 +49,9 @@ implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.4'
 * closeQuietly()
 * use()
 
+## Object
+* TAG()
+
 ## View
 * hideKeyboard()
 * showKeyboard()
