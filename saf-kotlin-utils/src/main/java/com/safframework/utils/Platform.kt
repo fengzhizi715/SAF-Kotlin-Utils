@@ -50,14 +50,7 @@ fun support(apiVersion:Int, block : () -> Unit) {
     }
 }
 
-fun <T> support(apiVersion:Int, function: () -> T, default: () -> T) {
-
-    if (versionOrHigher(apiVersion)) {
-        function()
-    } else {
-        default()
-    }
-}
+fun <T> support(apiVersion: Int, function: () -> T, default: () -> T): T = if (versionOrHigher(apiVersion)) function() else default()
 
 private fun versionOrHigher(version: Int) = Build.VERSION.SDK_INT >= version
 
