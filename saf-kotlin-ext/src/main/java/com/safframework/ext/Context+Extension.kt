@@ -1,7 +1,9 @@
 package com.safframework.ext
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.support.annotation.ColorRes
 import android.support.annotation.DimenRes
 import android.support.annotation.LayoutRes
@@ -25,6 +27,14 @@ val Context.screenWidth
  */
 val Context.screenHeight
     get() = resources.displayMetrics.heightPixels
+
+inline val Context.isNetworkAvailable: Boolean
+    @SuppressLint("MissingPermission")
+    get() {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetworkInfo = connectivityManager.activeNetworkInfo
+        return activeNetworkInfo?.isConnectedOrConnecting ?: false
+    }
 
 /**
  * returns dip(dp) dimension value in pixels
