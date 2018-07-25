@@ -19,13 +19,13 @@ import android.view.ViewGroup
 /**
  * screen width in pixels
  */
-val Context.screenWidth
+inline val Context.screenWidth
     get() = resources.displayMetrics.widthPixels
 
 /**
  * screen height in pixels
  */
-val Context.screenHeight
+inline val Context.screenHeight
     get() = resources.displayMetrics.heightPixels
 
 inline val Context.isNetworkAvailable: Boolean
