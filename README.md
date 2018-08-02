@@ -117,12 +117,6 @@ implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.4'
 
 Wechat：fengzhizi715
 
-SAF-AOP相关文章：
-
-http://www.jianshu.com/p/9e78560cadad
-
-http://www.jianshu.com/p/2779e3bb1f14
-
 
 > Java与Android技术栈：每周更新推送原创技术文章，欢迎扫描下方的公众号二维码并关注，期待与您的共同成长和进步。
 
