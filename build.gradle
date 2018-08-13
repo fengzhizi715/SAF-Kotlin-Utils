@@ -58,6 +58,6 @@ task clean(type: Delete) {
 }
 
 tasks.getByPath(":saf-kotlin-ext:releaseAndroidJavadocs").enabled = false
-tasks.getByPath(":saf-kotlin-ext:bintrayUpload").enabled = false
+tasks.getByPath(":saf-kotlin-ext:bintrayUpload").enabled = true
 tasks.getByPath(":saf-kotlin-utils:releaseAndroidJavadocs").enabled = false
-tasks.getByPath(":saf-kotlin-utils:bintrayUpload").enabled = true
+tasks.getByPath(":saf-kotlin-utils:bintrayUpload").enabled = false
