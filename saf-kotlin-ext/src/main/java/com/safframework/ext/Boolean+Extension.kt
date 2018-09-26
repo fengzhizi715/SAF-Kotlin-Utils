@@ -17,5 +17,3 @@ inline fun <T> Boolean.then(function: () -> T, default: T) = if (this) function(
 inline fun <T> Boolean.then(function: () -> T, default: () -> T) = if (this) function() else default()
 
 infix inline fun <reified T> Boolean.then(function: () -> T) = if (this) function() else null
-
-infix inline fun <reified T, reified Type> Type?.then(block: (Type) -> T) = if (this != null) block(this) else null
