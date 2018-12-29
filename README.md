@@ -15,8 +15,8 @@
 Gradle:
 
 ```groovy
-implementation 'com.safframework.utils:saf-kotlin-utils:0.0.4.7'
-implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.7'
+implementation 'com.safframework.utils:saf-kotlin-utils:0.1.0'
+implementation 'com.safframework.utils:saf-kotlin-ext:0.1.0'
 ```
 
 ## 工具库的方法
