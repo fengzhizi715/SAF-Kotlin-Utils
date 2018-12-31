@@ -21,7 +21,7 @@ implementation 'com.safframework.utils:saf-kotlin-ext:0.1.1'
 
 # 二. 功能
 
-## 2.1 工具库的方法
+## 2.1 工具库的类
 
 ### AppUtils
 
