@@ -29,6 +29,19 @@ implementation 'com.safframework.utils:saf-kotlin-ext:0.1.1'
 
 ### Platform
 
+### ProcessUtils
+
+### RetryWithDelay
+
+### RxJavaUtils
+
+### SAFUtils
+
+### SDCardUtils
+
+### ShellUtils
+
+### ToastUtils
 
 ## 2.2 扩展库的扩展方法、扩展属性
 
