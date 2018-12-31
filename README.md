@@ -10,19 +10,21 @@
 最新版本|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/saf-kotlin-utils/images/download.svg) ](https://bintray.com/fengzhizi715/maven/saf-kotlin-utils/_latestVersion)|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/saf-kotlin-ext/images/download.svg) ](https://bintray.com/fengzhizi715/maven/saf-kotlin-ext/_latestVersion)|
 
 
-# 下载安装
+# 一. 下载安装
 
 Gradle:
 
 ```groovy
-implementation 'com.safframework.utils:saf-kotlin-utils:0.1.0'
-implementation 'com.safframework.utils:saf-kotlin-ext:0.1.0'
+implementation 'com.safframework.utils:saf-kotlin-utils:0.1.1'
+implementation 'com.safframework.utils:saf-kotlin-ext:0.1.1'
 ```
 
-## 工具库的方法
+# 二. 功能
+
+## 2.1 工具库的方法
 
 
-## 扩展库的扩展方法、扩展属性
+## 2.2 扩展库的扩展方法、扩展属性
 
 ### Boolean
 * then()
