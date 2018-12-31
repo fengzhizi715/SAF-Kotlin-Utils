@@ -26,10 +26,6 @@ fun isKitkatWatchOrHigher(): Boolean = versionOrHigher(20)
 
 fun isLOrHigher(): Boolean = versionOrHigher(21)
 
-/**
- * api level 22是android 5.1
- * @return
- */
 fun isLMR1OrHigher(): Boolean = versionOrHigher(22)
 
 fun isMOrHigher(): Boolean = versionOrHigher(23)
@@ -41,6 +37,8 @@ fun isNMR1OrHigher(): Boolean = versionOrHigher(25)
 fun isOOrHigher(): Boolean = versionOrHigher(26)
 
 fun isOMR1OrHigher(): Boolean = versionOrHigher(27)
+
+fun isPOrHigher(): Boolean = versionOrHigher(28)
 
 fun support(apiVersion:Int, block : () -> Unit) {
 
