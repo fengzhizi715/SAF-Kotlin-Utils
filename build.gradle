@@ -5,9 +5,7 @@ ext {
             buildToolsVersion: "28.0.0",
             compileVersion   : 28,
             minSdk           : 15,
-            targetSdk        : 28,
-            version_code     : 1,
-            version_name     : "0.0.1"
+            targetSdk        : 28
     ]
 
     libraries = [
@@ -16,7 +14,7 @@ ext {
             rxandroid                 : "2.0.1",
             rxjava                    : "2.2.4",
 
-            saf_log                   : "1.5.4",
+            saf_log                   : "1.5.5",
 
             tony_common_utils         : "1.2.6"
     ]
