@@ -24,7 +24,7 @@ object SDCardUtils {
      * @return 是否存在SDCard
      */
     @JvmStatic
-    fun checkSDCardAvailable(): Boolean = android.os.Environment.getExternalStorageState() == android.os.Environment.MEDIA_MOUNTED
+    fun checkSDCardAvailable() = android.os.Environment.getExternalStorageState() == android.os.Environment.MEDIA_MOUNTED
 
     /**
      * Check if the file is exists
@@ -184,8 +184,7 @@ object SDCardUtils {
      * @param byteNum 字节数
      * @return 合适的内存大小
      */
-    fun byte2FitMemorySize(byteNum: Long): String
-            = when {
+    fun byte2FitMemorySize(byteNum: Long)= when {
         byteNum < 0 -> "shouldn't be less than zero"
         byteNum < SDCardUtils.KB -> String.format("%.3fB", byteNum + 0.0005)
         byteNum < SDCardUtils.MB -> String.format("%.3fKB", byteNum / SDCardUtils.KB)
@@ -200,7 +199,7 @@ object SDCardUtils {
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     @JvmStatic
-    fun getSDCardInfo(): SDCardInfo =
+    fun getSDCardInfo() =
             if (!checkSDCardAvailable()) {
                 SDCardInfo()
             } else {
