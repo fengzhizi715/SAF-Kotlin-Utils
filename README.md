@@ -23,6 +23,12 @@ implementation 'com.safframework.utils:saf-kotlin-ext:0.1.1'
 
 ## 2.1 工具库的方法
 
+### AppUtils
+
+### FileUtils
+
+### Platform
+
 
 ## 2.2 扩展库的扩展方法、扩展属性
 
