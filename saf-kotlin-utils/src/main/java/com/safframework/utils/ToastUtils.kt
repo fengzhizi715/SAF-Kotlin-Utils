@@ -18,7 +18,7 @@ import java.text.MessageFormat
  *
  * @param duration
  */
-private fun showToast(activity: Activity, resId: Int,
+private fun showToast(activity: Activity?, resId: Int,
                       duration: Int) {
     if (activity == null)
         return
@@ -34,7 +34,7 @@ private fun showToast(activity: Activity, resId: Int,
  *
  * @param duration
  */
-private fun showToast(activity: Activity, message: String,
+private fun showToast(activity: Activity?, message: String,
                       duration: Int) {
     if (activity == null)
         return
@@ -45,7 +45,7 @@ private fun showToast(activity: Activity, message: String,
     activity.runOnUiThread { Toast.makeText(context, message, duration).show() }
 }
 
-fun showToast(context: Context, resId: Int,
+fun showToast(context: Context?, resId: Int,
               duration: Int) {
     if (context == null)
         return
@@ -56,7 +56,7 @@ fun showToast(context: Context, resId: Int,
     }
 }
 
-fun showToast(context: Context, message: String,
+fun showToast(context: Context?, message: String,
               duration: Int) {
     if (context == null)
         return
@@ -68,21 +68,21 @@ fun showToast(context: Context, message: String,
 
 }
 
-fun showLong(activity: Activity, resId: Int) {
+fun showLong(activity: Activity?, resId: Int) {
     showToast(activity, resId, Toast.LENGTH_LONG)
 }
 
-fun showLong(activity: Activity, message: String) {
+fun showLong(activity: Activity?, message: String) {
     showToast(activity, message, Toast.LENGTH_LONG)
 }
 
-fun showLong(activity: Activity, message: String,
+fun showLong(activity: Activity?, message: String,
              vararg args: Any) {
     val formatted = MessageFormat.format(message, *args)
     showToast(activity, formatted, Toast.LENGTH_LONG)
 }
 
-fun showLong(activity: Activity, resId: Int,
+fun showLong(activity: Activity?, resId: Int,
              vararg args: Any) {
     if (activity == null)
         return
@@ -91,29 +91,29 @@ fun showLong(activity: Activity, resId: Int,
     showLong(activity, message, *args)
 }
 
-fun showLong(context: Context, resId: Int) {
+fun showLong(context: Context?, resId: Int) {
     showToast(context, resId, Toast.LENGTH_LONG)
 }
 
-fun showLong(context: Context, message: String) {
+fun showLong(context: Context?, message: String) {
     showToast(context, message, Toast.LENGTH_LONG)
 }
 
-fun showShort(activity: Activity, resId: Int) {
+fun showShort(activity: Activity?, resId: Int) {
     showToast(activity, resId, Toast.LENGTH_SHORT)
 }
 
-fun showShort(activity: Activity, message: String) {
+fun showShort(activity: Activity?, message: String) {
     showToast(activity, message, Toast.LENGTH_SHORT)
 }
 
-fun showShort(activity: Activity, message: String,
+fun showShort(activity: Activity?, message: String,
               vararg args: Any) {
     val formatted = MessageFormat.format(message, *args)
     showToast(activity, formatted, Toast.LENGTH_SHORT)
 }
 
-fun showShort(activity: Activity, resId: Int,
+fun showShort(activity: Activity?, resId: Int,
               vararg args: Any) {
     if (activity == null)
         return
@@ -122,10 +122,10 @@ fun showShort(activity: Activity, resId: Int,
     showShort(activity, message, *args)
 }
 
-fun showShort(context: Context, resId: Int) {
+fun showShort(context: Context?, resId: Int) {
     showToast(context, resId, Toast.LENGTH_SHORT)
 }
 
-fun showShort(context: Context, message: String) {
+fun showShort(context: Context?, message: String) {
     showToast(context, message, Toast.LENGTH_SHORT)
 }

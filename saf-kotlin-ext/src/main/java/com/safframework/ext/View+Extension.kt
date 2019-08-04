@@ -26,6 +26,7 @@ fun View.showKeyboard():Boolean {
     requestFocus()
     return (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
+/***************************延迟点击相关 Start******************************/
 
 /***
  * 设置延迟时间的View扩展
@@ -71,7 +72,7 @@ private var <T : View> T.triggerLastTime: Long
     }
 
 private var <T : View> T.triggerDelay: Long
-    get() = if (getTag(1123461123) != null) getTag(1123461123) as Long else -1
+    get() = if (getTag(1123461123) != null) getTag(1123461123) as Long else 600
     set(value) {
         setTag(1123461123, value)
     }
@@ -85,6 +86,22 @@ private fun <T : View> T.clickEnable(): Boolean {
     triggerLastTime = currentClickTime
     return flag
 }
+
+/***
+ * 带延迟过滤的点击事件监听 View.OnClickListener
+ * 延迟时间根据triggerDelay获取：600毫秒，不能动态设置
+ */
+interface OnLazyClickListener : View.OnClickListener {
+
+    override fun onClick(v: View?) {
+        if (v?.clickEnable() == true) {
+            onLazyClick(v)
+        }
+    }
+
+    fun onLazyClick(v: View)
+}
+/***************************延迟点击相关 End******************************/
 
 fun <T : View> T.longClick(block: (T) -> Boolean) = setOnLongClickListener { block(it as T) }
 
