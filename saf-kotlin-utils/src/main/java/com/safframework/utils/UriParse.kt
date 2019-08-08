@@ -99,7 +99,7 @@ class UriParse @JvmOverloads constructor(url: String?, charset: String? = null) 
             this.port = newUri.port
             this.userInfo = newUri.userInfo
             this.path = dropLastSeparator(newUri.path)
-            this.queries = parseQueryString(substringAfter(newUri.toString(), "?"))
+            this.queries = parseQueryString(newUri.query)
         }
 
     }
@@ -374,29 +374,15 @@ class UriParse @JvmOverloads constructor(url: String?, charset: String? = null) 
             return params
         }
         val receivedQueryPairs = query.split("&".toRegex()).dropWhile { it.isBlank() }
-
-        var receivedNameAndValue: List<String>?
-        for (queryKey in receivedQueryPairs) {
-            receivedNameAndValue = queryKey.split("=".toRegex()).dropWhile { it.isBlank() }
-            if (receivedNameAndValue.size == 2) {
-                val name = receivedNameAndValue[0]
-                val value = receivedNameAndValue[1]
+        for (queryItem in receivedQueryPairs) {
+            val separator = queryItem.indexOf('=')
+            if (separator != -1) {
+                val name = queryItem.substring(0, separator)
+                val value = queryItem.substring(separator + 1)
                 params.putString(name, value)
             }
         }
         return params
-    }
-
-    private fun substringAfter(str: String?, sep: String): String? {
-        if (str == null) {
-            return null
-        }
-        val index = str.indexOf(sep)
-        return if (index == -1) {
-            ""
-        } else {
-            str.substring(index + 1)
-        }
     }
 
     private fun isUri(str: String?): Boolean {
