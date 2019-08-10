@@ -2,7 +2,9 @@ package com.safframework.ext
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.support.annotation.ColorRes
 import android.support.annotation.DimenRes
@@ -11,6 +13,7 @@ import android.support.annotation.StringRes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import java.io.File
 
 /**
  * Created by Tony Shen on 2017/6/30.
@@ -118,3 +121,32 @@ fun Context.getAppVersionCode(): Int {
  * @return package name
  */
 fun Context.getPackageName(): String = packageName
+
+data class AppInfo(
+        val apkPath: String,
+        val packageName: String,
+        val versionName: String,
+        val versionCode: Long,
+        val appName: String,
+        val icon: Drawable
+)
+
+fun Context.getAppInfo(apkPath: String): AppInfo {
+    val packageInfo = packageManager.getPackageArchiveInfo(apkPath, PackageManager.GET_META_DATA)
+    packageInfo.applicationInfo.sourceDir = apkPath
+    packageInfo.applicationInfo.publicSourceDir = apkPath
+
+    val packageName = packageInfo.packageName
+    val appName = packageManager.getApplicationLabel(packageInfo.applicationInfo).toString()
+    val versionName = packageInfo.versionName
+    val versionCode = packageInfo.versionCode
+    val icon = packageManager.getApplicationIcon(packageInfo.applicationInfo)
+    return AppInfo(apkPath, packageName, versionName, versionCode.toLong(), appName, icon)
+}
+
+fun Context.getAppInfos(apkFolderPath: String): List<AppInfo> {
+    val appInfoList = ArrayList<AppInfo>()
+    for (file in File(apkFolderPath).listFiles())
+        appInfoList.add(getAppInfo(file.path))
+    return appInfoList
+}
