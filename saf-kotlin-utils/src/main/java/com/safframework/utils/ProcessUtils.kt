@@ -25,7 +25,8 @@ object ProcessUtils {
      * @param context 上下文
      * @return 前台应哟过包名
      */
-    @JvmStatic fun getForegroundProcessName(context: Context): String? {
+    @JvmStatic
+    fun getForegroundProcessName(context: Context): String? {
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         am.runningAppProcesses.map {
             if (it.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
@@ -73,7 +74,8 @@ object ProcessUtils {
      * @param context 上下文
      * @return 所有的后台进程的set
      */
-    @JvmStatic fun getAllBackgroundProcesses(context: Context): HashSet<String> {
+    @JvmStatic
+    fun getAllBackgroundProcesses(context: Context): HashSet<String> {
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val set = HashSet<String>()
         am.runningAppProcesses.map {
@@ -89,7 +91,8 @@ object ProcessUtils {
      * @param context 上下文
      * @return 被杀死的后台进程的set
      */
-    @JvmStatic fun killAllBackgroundProcesses(context: Context): HashSet<String> {
+    @JvmStatic
+    fun killAllBackgroundProcesses(context: Context): HashSet<String> {
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val set = HashSet<String>()
         am.runningAppProcesses.map {
@@ -114,7 +117,8 @@ object ProcessUtils {
      * @param packageName 包名
      * @return boolean
      */
-    @JvmStatic fun killBackgroundProcesses(context: Context, packageName: String?): Boolean {
+    @JvmStatic
+    fun killBackgroundProcesses(context: Context, packageName: String?): Boolean {
         if (Preconditions.isBlank(packageName)) {
             return false
         }
