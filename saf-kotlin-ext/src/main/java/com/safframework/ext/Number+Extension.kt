@@ -27,9 +27,9 @@ const val DEFAULT_SEPARATE_NUMBER = 3
  * @param decimalNum 小数点后位数
  */
 fun Number.formatNumber(
-    addComma: Boolean = false,
-    modeFloor: Boolean = true,
-    decimalNum: Int? = DEFAULT_DECIMAL_NUMBER
+        addComma: Boolean = false,
+        modeFloor: Boolean = true,
+        decimalNum: Int? = DEFAULT_DECIMAL_NUMBER
 ): String {
     var decimal = decimalNum
     if (decimal == null) {
@@ -48,12 +48,12 @@ fun Number.formatNumber(
  * @param decimalNum 小数点后位数
  */
 fun String.formatNumber(
-    addComma: Boolean = false, modeFloor: Boolean = true,
-    decimalNum: Int? = DEFAULT_DECIMAL_NUMBER
+        addComma: Boolean = false, modeFloor: Boolean = true,
+        decimalNum: Int? = DEFAULT_DECIMAL_NUMBER
 ): String =
-    this.toBigDecimalWithNull().formatNumber(addComma, modeFloor, decimalNum)
+        this.toBigDecimalWithNull().formatNumber(addComma, modeFloor, decimalNum)
 
-fun String?.toBigDecimalWithNull(default: BigDecimal = BigDecimal.ZERO) = this.isNullOrBlank().not().then({
+fun String?.toBigDecimalWithNull(default: BigDecimal = BigDecimal.ZERO) = isNullOrBlank().not().then({
     try {
         this!!.toBigDecimal()
     } catch (e: NumberFormatException) {
@@ -61,7 +61,7 @@ fun String?.toBigDecimalWithNull(default: BigDecimal = BigDecimal.ZERO) = this.i
     }
 }, default)
 
-fun String?.toIntWithNull(default: Int = 0) = this.isNullOrBlank().not().then({
+fun String?.toIntWithNull(default: Int = 0) = isNullOrBlank().not().then({
     try {
         this!!.toInt()
     } catch (e: NumberFormatException) {
@@ -69,7 +69,7 @@ fun String?.toIntWithNull(default: Int = 0) = this.isNullOrBlank().not().then({
     }
 }, default)
 
-fun String?.toFloatWithNull(default: Float = 0F) = this.isNullOrBlank().not().then({
+fun String?.toFloatWithNull(default: Float = 0F) = isNullOrBlank().not().then({
     try {
         this!!.toFloat()
     } catch (e: NumberFormatException) {
@@ -77,7 +77,7 @@ fun String?.toFloatWithNull(default: Float = 0F) = this.isNullOrBlank().not().th
     }
 }, default)
 
-fun String?.toDoubleWithNull(default: Double = 0.toDouble()) = this.isNullOrBlank().not().then({
+fun String?.toDoubleWithNull(default: Double = 0.toDouble()) = isNullOrBlank().not().then({
     try {
         this!!.toDouble()
     } catch (e: NumberFormatException) {
