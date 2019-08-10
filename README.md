@@ -138,6 +138,7 @@ implementation 'com.safframework.utils:saf-kotlin-ext:0.1.1'
 * [saf-logginginterceptor](https://github.com/fengzhizi715/saf-logginginterceptor): OKHttp的日志的拦截器，方便Android程序员调试接口
 * [SAF-Object-Delegate](https://github.com/fengzhizi715/SAF-Object-Delegate): 基于 Kotlin 的委托机制实现对 Extra、SharedPreferences 的封装
 * [LiveDataExtension](https://github.com/fengzhizi715/LiveDataExtension): LiveData 的扩展
+* [Lifecycle-Coroutines-Extension](https://github.com/fengzhizi715/Lifecycle-Coroutines-Extension): AAC 的 Lifecycle 结合 Kotlin Coroutines 进行使用
 
 
 联系方式
