@@ -26,6 +26,16 @@ fun View.showKeyboard():Boolean {
     requestFocus()
     return (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
+
+/**
+ * 默认的时间单位是毫秒
+ */
+inline fun View.postDelayed(delay: Long, crossinline action: () -> Unit): Runnable {
+    val runnable = Runnable { action() }
+    postDelayed(runnable, delay)
+    return runnable
+}
+
 /***************************延迟点击相关 Start******************************/
 
 /***
