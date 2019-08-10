@@ -135,6 +135,7 @@ implementation 'com.safframework.utils:saf-kotlin-ext:0.1.1'
 # 三. 本人其余的 Kotlin 开源库（Android）
 
 * [SAF-Kotlin-log](https://github.com/fengzhizi715/SAF-Kotlin-log): 完全基于Kotlin开发的Android日志框架，提供极简的API
+* [saf-logginginterceptor](https://github.com/fengzhizi715/saf-logginginterceptor): OKHttp的日志的拦截器，方便Android程序员调试接口
 
 
 联系方式
