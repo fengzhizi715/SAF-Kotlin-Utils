@@ -48,7 +48,9 @@ dependencies {
     implementation project(':saf-kotlin-utils')
     implementation project(':saf-kotlin-ext')
     implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
-    implementation "com.safframework.log:saf-log:${libs.saf_log}"
+
+    implementation "com.safframework.log:saf-log-core:${libs.saf_log}"
+
     implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
     testImplementation 'junit:junit:4.12'
 }

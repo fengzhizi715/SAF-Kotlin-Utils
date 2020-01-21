@@ -32,7 +32,6 @@ import android.os.*
 import android.os.storage.StorageManager
 import android.print.PrintManager
 import android.service.wallpaper.WallpaperService
-import android.support.annotation.RequiresApi
 import android.telecom.TelecomManager
 import android.telephony.TelephonyManager
 import android.view.LayoutInflater
@@ -41,6 +40,7 @@ import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.CaptioningManager
 import android.view.inputmethod.InputMethodManager
 import android.view.textservice.TextServicesManager
+import androidx.annotation.RequiresApi
 
 /**
  * Created by Tony Shen on 2017/6/30.

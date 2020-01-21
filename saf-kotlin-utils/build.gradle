@@ -38,7 +38,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compileOnly "com.android.support:appcompat-v7:${libs.supportVersion}"
+    compileOnly 'androidx.appcompat:appcompat:1.0.2'
+
     testImplementation 'junit:junit:4.12'
     testImplementation 'com.android.support.test:runner:1.0.2'
 
@@ -71,7 +72,7 @@ publish{
     userOrg = 'fengzhizi715'
     groupId = 'com.safframework.utils'
     artifactId = 'saf-kotlin-utils'
-    publishVersion = '0.1.1'
+    publishVersion = "$util_version"
     desc = 'this is an android tool library, written using Kotlin'
     website = 'https://github.com/fengzhizi715/SAF-Kotlin-Utils'
 }

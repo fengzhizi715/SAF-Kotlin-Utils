@@ -2,17 +2,16 @@ package com.safframework.ext
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
-import android.support.annotation.ColorRes
-import android.support.annotation.DimenRes
-import android.support.annotation.LayoutRes
-import android.support.annotation.StringRes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
+import androidx.annotation.LayoutRes
+import androidx.annotation.StringRes
 import java.io.File
 
 /**
