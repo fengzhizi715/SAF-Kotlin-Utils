@@ -345,7 +345,7 @@ class UriParse @JvmOverloads constructor(url: String?, charset: String? = null) 
                     URLEncoder.encode(value, charset)
                 }
             } catch (e: UnsupportedEncodingException) {
-                Log.e("Exception", e.message)
+                Log.e("Exception", e.message ?:"")
             }
 
         }
@@ -361,7 +361,7 @@ class UriParse @JvmOverloads constructor(url: String?, charset: String? = null) 
                     URLDecoder.decode(value, charset)
                 }
             } catch (e: UnsupportedEncodingException) {
-                Log.e("Exception", e.message)
+                Log.e("Exception", e.message ?: "")
             }
 
         }

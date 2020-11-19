@@ -38,7 +38,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compileOnly 'androidx.appcompat:appcompat:1.0.2'
+    compileOnly "androidx.appcompat:appcompat:${libs.appcompat}"
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'com.android.support.test:runner:1.0.2'

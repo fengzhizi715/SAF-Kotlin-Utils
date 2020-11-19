@@ -2,6 +2,7 @@ package com.safframework.ext
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
@@ -131,7 +132,7 @@ data class AppInfo(
 )
 
 fun Context.getAppInfo(apkPath: String): AppInfo {
-    val packageInfo = packageManager.getPackageArchiveInfo(apkPath, PackageManager.GET_META_DATA)
+    val packageInfo = packageManager.getPackageArchiveInfo(apkPath, PackageManager.GET_META_DATA) as PackageInfo
     packageInfo.applicationInfo.sourceDir = apkPath
     packageInfo.applicationInfo.publicSourceDir = apkPath
 
