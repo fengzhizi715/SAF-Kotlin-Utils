@@ -11,9 +11,9 @@ ext {
     libraries = [
             appcompat                 : "1.2.0",
 
-            rxandroid                 : "2.0.1",
+            rxandroid                 : "2.1.1",
 
-            rxjava                    : "2.2.18",
+            rxjava                    : "2.2.19",
 
             saf_log                   : "2.5.3",
 
@@ -23,7 +23,7 @@ ext {
 
 buildscript {
     ext.kotlin_version = '1.4.10'
-    ext.util_version = '0.2.0'
+    ext.util_version = '0.2.1'
 
     repositories {
         jcenter()
