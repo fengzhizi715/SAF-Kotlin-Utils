@@ -13,50 +13,40 @@ object RxJavaUtils {
     @JvmStatic
     fun <T> observableToMain():ObservableTransformer<T, T> {
 
-        return ObservableTransformer{
-            upstream ->
-            upstream.subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
+        return ObservableTransformer{ upstream ->
+            upstream.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         }
     }
 
     @JvmStatic
     fun <T> flowableToMain(): FlowableTransformer<T, T> {
 
-        return FlowableTransformer{
-            upstream ->
-            upstream.subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
+        return FlowableTransformer{ upstream ->
+            upstream.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         }
     }
 
     @JvmStatic
     fun <T> singleToMain(): SingleTransformer<T, T> {
 
-        return SingleTransformer{
-            upstream ->
-            upstream.subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
+        return SingleTransformer{ upstream ->
+            upstream.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         }
     }
 
     @JvmStatic
     fun completableToMain(): CompletableTransformer {
 
-        return CompletableTransformer{
-            upstream ->
-            upstream.subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
+        return CompletableTransformer{ upstream ->
+            upstream.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         }
     }
 
     @JvmStatic
     fun <T> maybeToMain(): MaybeTransformer<T, T> {
 
-        return MaybeTransformer{
-            upstream ->
-            upstream.subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
+        return MaybeTransformer{ upstream ->
+            upstream.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         }
     }
 

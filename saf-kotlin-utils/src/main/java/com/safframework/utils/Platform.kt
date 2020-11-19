@@ -40,6 +40,10 @@ fun isOMR1OrHigher(): Boolean = versionOrHigher(27)
 
 fun isPOrHigher(): Boolean = versionOrHigher(28)
 
+fun isQOrHigher(): Boolean = versionOrHigher(29)
+
+fun isROrHigher(): Boolean = versionOrHigher(30)
+
 fun support(apiVersion:Int, block : () -> Unit) {
 
     if (versionOrHigher(apiVersion)) {
