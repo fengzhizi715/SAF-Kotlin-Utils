@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.novoda.bintray-release'
+
+group = 'com.github.fengzhizi715'
 
 def cfg = rootProject.ext.configuration // 配置
 def libs = rootProject.ext.libraries // 库
@@ -53,11 +54,13 @@ dependencies {
 
 repositories {
     jcenter()
+    maven { url 'https://jitpack.io' }
 }
 
 allprojects {
     repositories {
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
     //加上这些
     tasks.withType(Javadoc) {
@@ -66,13 +69,4 @@ allprojects {
             links "http://docs.oracle.com/javase/7/docs/api"
         }
     }
-}
-
-publish{
-    userOrg = 'fengzhizi715'
-    groupId = 'com.safframework.utils'
-    artifactId = 'saf-kotlin-utils'
-    publishVersion = "$util_version"
-    desc = 'this is an android tool library, written using Kotlin'
-    website = 'https://github.com/fengzhizi715/SAF-Kotlin-Utils'
 }
