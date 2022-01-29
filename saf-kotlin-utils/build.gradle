@@ -43,20 +43,18 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation "tony-common:tony-common-utils:${libs.tony_common_utils}"
+    implementation "com.github.fengzhizi715.tony-common:tony-common-utils:${libs.tony_common_utils}"
 
     compileOnly "io.reactivex.rxjava2:rxandroid:${libs.rxandroid}"
     compileOnly "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
 }
 
 repositories {
-    jcenter()
     maven { url 'https://jitpack.io' }
 }
 
 allprojects {
     repositories {
-        jcenter()
         maven { url 'https://jitpack.io' }
     }
     //加上这些
