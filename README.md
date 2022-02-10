@@ -27,8 +27,8 @@
 Gradle:
 
 ```groovy
-implementation 'com.github.fengzhizi715.SAF-Kotlin-Utils:saf-kotlin-ext:v0.2.3'
-implementation 'com.github.fengzhizi715.SAF-Kotlin-Utils:saf-kotlin-utils:v0.2.3'
+implementation 'com.github.fengzhizi715.SAF-Kotlin-Utils:saf-kotlin-ext:v0.23'
+implementation 'com.github.fengzhizi715.SAF-Kotlin-Utils:saf-kotlin-utils:v0.23'
 ```
 
 # 二. 功能
